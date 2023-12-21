@@ -66,6 +66,7 @@ header {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 1rem;
 }
 
 .hacker {
@@ -74,7 +75,6 @@ header {
 }
 article {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
   width: 50vw;
@@ -92,7 +92,6 @@ aside {
 
 .cyberbox {
   display: flex;
-  flex-wrap: wrap;
   height: 15vw;
   flex-direction: column;
   background-color: #eaeaea;
@@ -144,4 +143,33 @@ footer a {
   color: #fff;
   font-weight: 300;
   font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .cyberbox {
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .cyberbox h2 {
+    margin-inline: 0.5rem;
+  }
+
+  article {
+    width: 100%;
+  }
+
+  p,
+  h2,
+  h3 {
+    margin-inline: 0.5rem;
+  }
+
+  .thanks {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
