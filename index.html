@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <nav>
+    <a href="nodefined">
+      <img class="house" alt="house" src="img/house.png" />Accueil</a>
+    <div class="logo-container">
+      <img class="logo" alt="logo" src="img/2i2d.png" />
+    </div>
+  </nav>
+  <header>
+    <h1 class="title">Les 5 principaux risques de sécurité des applications Web</h1>
+    <p class="subtitle">Accueil > Cybersécurité > Failles Web</p>
+  </header>
+  <img class="hacker" alt="hacker" src="img/hacker.png" />
+  <article>
+    <p>Cet article est a pour but de prévenir et de sensibiliser gens aux failles qu’un site web peut
+      contenir. Grâce à ça vous pourrez en apprendre plus sur les sites web et la cybersécurité en générale. Car
+      nombreux sont les sites qui contiennent des failles qui peuvent être exploité par des hacker.</p>
+    <p>Voici un petit sommaire des 5 principaux risques de sécurité des applications Web basé sur le
+      classement de l’OWASP concernant l’année 2021 :</p>
+    <ul>
+      <li><a href="#Quesako">Qu'est-ce qu'une faille de sécurité ?</a></li>
+      <li><a href="#BAC">1 - Broken Access Control</a></li>
+      <li><a href="#CF">2 - Cryptographic Failures</a></li>
+      <li><a href="#INJ">3 - Injection</a></li>
+      <li><a href="#ID">4 - Insecure Design</a></li>
+      <li><a href="#SM">5 - Security Missconfiguration</a></li>
+    </ul>
+
+    <h2 id="Quesako">Qu'est-ce qu'une faille de sécurité ?</h2>
+    <p>Dans le domaine de la sécurité informatique, une vulnérabilité ou faille est une faiblesse dans un
+      système informatique permettant à un attaquant de porter atteinte à l'intégrité de ce système, c'est-à-dire à son
+      fonctionnement normal, à la confidentialité ou à l'intégrité des données qu'il contient. Ces vulnérabilités sont
+      la conséquence de faiblesses dans la conception, la mise en œuvre ou l'utilisation d'un composant matériel ou
+      logiciel du système, mais il s'agit souvent d'anomalies logicielles liées à des erreurs de programmation ou à de
+      mauvaises pratiques. Ces dysfonctionnements logiciels sont en général corrigés à mesure de leurs découvertes, mais
+      l'utilisateur reste exposé à une éventuelle exploitation tant que le correctif (temporaire ou définitif) n'est pas
+      publié et installé. C'est pourquoi il est important de maintenir les logiciels à jour avec les correctifs fournis
+      par les éditeurs de logiciels. La procédure d'exploitation d'une vulnérabilité logicielle est appelée exploit.</p>
+
+    <h2 id="BAC">1 - Broken Access Control</h2>
+    <!-- ^ j'espère l'avoir :')-->
+    <p>Dans le domaine de la sécurité informatique, une vulnérabilité ou faille est une faiblesse dans un
+      système informatique permettant à un attaquant de porter atteinte à l'intégrité de ce système, c'est-à-dire à son
+      fonctionnement normal, à la confidentialité ou à l'intégrité des données qu'il contient. Ces vulnérabilités sont
+      la conséquence de faiblesses dans la conception, la mise en œuvre ou l'utilisation d'un composant matériel ou
+      logiciel du système, mais il s'agit souvent d'anomalies logicielles liées à des erreurs de programmation ou à de
+      mauvaises pratiques. Ces dysfonctionnements logiciels sont en général corrigés à mesure de leurs découvertes, mais
+      l'utilisateur reste exposé à une éventuelle exploitation tant que le correctif (temporaire ou définitif) n'est pas
+      publié et installé. C'est pourquoi il est important de maintenir les logiciels à jour avec les correctifs fournis
+      par les éditeurs de logiciels. La procédure d'exploitation d'une vulnérabilité logicielle est appelée exploi</p>
+    <h3>Comment se prémunir du Broken Access Control ?</h3>
+    <p>Le contrôle d'accès n'est efficace que dans le code de confiance côté serveur ou des API serverless,
+      où l'attaquant ne peut pas modifier la vérification du contrôle d'accès ou les métadonnées.
+    <ul>
+      <li>À l'exception des ressources publiques, tout doit être bloqué par défaut.</li>
+      <li>Centraliser l'implémentation des mécanismes de contrôle d'accès et les réutiliser dans l'ensemble de
+        l'application. Cela comprend de minimiser l'utilisation de CORS.</li>
+      <li>Le modèle de contrôle d'accès doit imposer l'appartenance des enregistrements, plutôt que de permettre à
+        l'utilisateur de créer, lire, modifier ou supprimer n'importe quel enregistrement.</li>
+      <li>Les exigences métier spécifiques de l'application doivent être appliquées par domaines.</li>
+      <li>Désactiver le listing de dossier sur le serveur web, et vérifier que les fichiers de métadonnées (ex : .git)
+        et de sauvegardes ne se trouvent pas dans l'arborescence web.</li>
+      <li>Tracer les échecs de contrôles d'accès, alerter les administrateurs quand c'est approprié (ex : échecs
+        répétés).</li>
+      <li>Limiter la fréquence d'accès aux API et aux contrôleurs d'accès, afin de minimiser les dégâts que causeraient
+        des outils d'attaques automatisés.</li>
+      <li>Les identifiants de session avec état doivent être invalidés côté serveur après une déconnexion. Les JWT, sans
+        état, doivent être à durée de vie relativement courte pour que la fenêtre d'opportunité d'un attaquant soit
+        minimisée. Pour les JWT avec une durée de vie plus longue, il est fortement recommandé de suivre le standard
+        OAuth de révocation d'accès.</li>
+    </ul>Les développeurs et les testeurs qualité doivent procéder à des tests unitaires et d'intégration sur les
+    fonctionnalités de contrôle d'accès.</p>
+
+    <h2 id="CF">2 - Cryptographic Failures</h2>
+    <p>Cette faille regroupe tous les problèmes liés au chiffrement et à ses erreurs. De telles erreurs
+      peuvent mener à une divulgation de données. Les failles de sécurité les plus courantes :
+    <ul>
+      <li>Des données sensibles sont sauvegardées ou transférées en clair</li>
+      <li>L’application web utilise des algorithmes et des protocoles de chiffrement désuets ou faibles</li>
+      <li>Il n’y a pas de gestion ou de rotation des clés et des clés de chiffrement faibles ou standardisées sont
+        utilisées</li>
+    </ul>
+    </p>
+    <h3>Comment se prémunir des Cryptographic Failures ?</h3>
+    <p>Pour éviter les failles de Cryptographie il faut :
+    <ul>
+      <li>Classifiez les données et implémentez-les conformément au règlement sur la protection des données en vigueur
+      </li>
+      <li>Ne stockez pas de données sensibles</li>
+      <li>Au repos, les données doivent être cryptées</li>
+      <li>N’utilisez pas de protocoles en clair</li>
+      <li>Ne mettez pas en cache les réponses utilisateur (User Responses) contenant des données sensibles</li>
+    </ul>
+    </p>
+
+    <h2 id="INJ">3 - Injection</h2>
+    <p>Une attaque par XSS consiste à introduire un code malveillant dans des plateformes en ligne par
+      ailleurs sûres. Ce type de menace résulte de l’injection de script malveillant par des cybercriminels dans le
+      contenu du site internet visé, qui est par la suite enfermé dans le contenu dynamique recueilli par le navigateur
+      de la proie. En fait, le navigateur n’est pas capable de distinguer les balises valides de celles du pirate
+      informatique et son rôle se limite juste à les exécuter. Ainsi, ces scripts malveillants ont accès aux cookies et
+      aux données sensibles stockées par le navigateur ou encore aux jetons de session. Les hackers se servent également
+      d’une attaque XSS pour répandre un malware, perturber les médias sociaux, réécrire le contenu du site et
+      hameçonner les identifiants d’un internaute. À l’inverse des autres attaques en ligne, les failles Cross-site
+      Scripting ne visent pas immédiatement le programme lui-même, mais principalement ses utilisateurs.</p>
+    <h3>Comment se prémunir des Injections ?</h3>
+    <p>Au même titre qu’il existe plusieurs moyens d’exploiter la faille XSS, il existe plusieurs moyens de
+      s’en protéger. L’idée générale est cependant la même : filtrer les entrées utilisateurs (en commençant par ne
+      faire confiance A RIEN de ce qui vient du navigateur/de l’utilisateur). Il faut par exemple utiliser les fonctions
+      : php htmlspecialchars() qui filtre les ‘<‘ et ‘>’ ou htmlentities() qui filtre toutes les entités html.Ces
+        fonctions doivent être utilisées sur des entrées utilisateurs qui s’afficheront plus tard sur votre site. Si
+        elle ne sont pas filtrées, les scripts comme ceux que nous avons vus plus haut s’exécuteront avec tout le mal
+        qui s’en suit. Voici un exemple d’utilisation de cette fonction avec un paramètre POST appelé « nom » qu’un
+        navigateur nous envoie (typiquement un formulaire demandant un nom):
+        <?php echo htmlspecialchars($_POST['nom']); // echo affiche les données sur un page, du coup on protège l'affichage avec la fonction htmlspecialchars?>.
+        Au possible, il faut placer des cookies avec le paramètre HttpOnly, empêchant leur récupération avec JavaScript
+        (Attention elle n’est pas forcément supportée par tous les navigateurs).</p>
+
+    <h2 id="ID">4 - Insecure Design</h2>
+    <p>La conception non sécurisée est une vaste catégorie représentant différentes faiblesses, exprimées
+      par « une conception de contrôle manquante ou inefficace ». La conception non sécurisée n’est pas à l’origine de
+      toutes les autres catégories de risques du Top 10. Il existe une différence entre une conception non sécurisée et
+      une mise en œuvre non sécurisée. Nous faisons la différence entre les défauts de conception et les défauts de mise
+      en œuvre pour une raison : ils ont des causes profondes et des mesures correctives différentes. Une conception
+      sécurisée peut toujours présenter des défauts de mise en œuvre conduisant à des vulnérabilités pouvant être
+      exploitées. Une conception non sécurisée ne peut pas être corrigée par une mise en œuvre parfaite car, par
+      définition, les contrôles de sécurité nécessaires n'ont jamais été créés pour se défendre contre des attaques
+      spécifiques. L'un des facteurs qui contribuent à une conception non sécurisée est l'absence de profilage des
+      risques commerciaux inhérents au logiciel ou au système en cours de développement, et donc l'incapacité de
+      déterminer le niveau de conception de sécurité requis.</p>
+    <h3>Comment se prémunir de l’Insecure Design ?</h3>
+    <p>Pour se prémunir de l'Insecure Design le mieux est :
+    <ul>
+      <li>Établir et utiliser un cycle de vie de développement sécurisé avec AppSec professionnels pour aider à évaluer
+        et à concevoir la sécurité et contrôles liés à la confidentialité</li>
+      <li>Établir et utiliser une bibliothèque de modèles de conception sécurisés ou de routes pavées composants prêts à
+        l'emploi</li>
+      <li>Utilisez la modélisation des menaces pour l'authentification critique, le contrôle d'accès, logique métier et
+        flux clés</li>
+      <li>Intégrer le langage et les contrôles de sécurité dans les user stories</li>
+      <li>Intégrez des contrôles de plausibilité à chaque niveau de votre application (du front-end au back-end)</li>
+      <li>Rédiger des tests unitaires et d'intégration pour valider que tous les flux critiques résistent au modèle de
+        menace. Compiler les cas d'utilisation et les cas d'utilisation abusive pour chaque niveau de votre application.
+      </li>
+      <li>Séparez les couches de niveau sur les couches système et réseau en fonction du besoins d’exposition et de
+        protection</li>
+      <li>Séparez les locataires de manière robuste dès la conception à tous les niveaux</li>
+      <li>Limiter la consommation de ressources par utilisateur ou service</li>
+    </ul>
+    </p>
+
+    <h2 id="SM">5 - Security Missconfiguration</h2>
+    <p>La mauvaise configuration de sécurité est quand un site web :
+    <ul>
+      <li>n'a pas fait l'objet d'un durcissement de la sécurité approprié sur l'ensemble des couches protocolaires
+        applicatives, ou si les permissions sont mal configurées sur les services cloud</li>
+      <li>des fonctionnalités inutiles sont activées ou installées (ex : des ports, des services, des pages, des comptes
+        ou des privilèges inutiles)</li>
+      <li>les comptes par défaut et leurs mots de passe sont toujours activés et inchangés</li>
+      <li>le traitement des erreurs révèle aux utilisateurs des traces des piles protocolaires ou d'autres messages
+        d'erreur laissant transpirer trop d'informations</li>
+      <li>pour les systèmes à jour ou mis à niveau, les dernières fonctionnalités de sécurité sont désactivées ou ne
+        sont pas configurées de manière sécurisée</li>
+      <li>les paramètres de sécurité dans les serveurs d'application, les frameworks applicatifs (ex : Struts, Spring,
+        ASP.NET), les bibliothèques, les bases de données, etc. ne sont pas paramétrés avec des valeurs correctes du
+        point de vue de la sécurité</li>
+      <li>le serveur n'envoie pas d'en-têtes ou de directives de sécurité, ou s'ils ne sont pas paramétrés avec des
+        valeurs correctes du point de vue de la sécurité</li>
+      <li>La version du logiciel est obsolète ou vulnérable (voir A06:2021-Composants vulnérables et obsolètes).</li>
+    </ul>Sans un processus concerté et répétable de configuration de la sécurité des applications, les systèmes courent
+    un risque plus élevé.</p>
+    <h3>Comment se prémunir de la Security Missconfiguration ?</h3>
+    <p class="text2">Des processus d'installation sécurisés doivent être mis en œuvre, avec notamment :
+    <ul>
+      <li>un processus de durcissement répétable qui permette de déployer rapidement et facilement un autre
+        environnement correctement sécurisé avec une configuration verrouillée. Les environnements de développement,
+        d'assurance qualité et de production doivent tous être configurés de manière identique, avec des droits
+        différents pour chaque environnement. Ce processus devrait être automatisé afin de réduire au minimum les
+        efforts requis pour mettre en place un nouvel environnement sécurisé</li>
+      <li>une plate-forme minimale sans fonctionnalité, composant, documentation et échantillon inutile. Supprimer ou ne
+        pas installer des fonctionnalités et frameworks inutilisés</li>
+      <li>une tâche pour revoir et mettre à jour les configurations appropriées à tous les avis de sécurité, toutes les
+        mises à jour et tous les correctifs dans le cadre du processus de gestion des correctifs (voir
+        A06:2021-Composants vulnérables et obsolètes). En particulier, examiner les permissions de stockage dans le
+        Cloud (ex. les permissions des buckets AWS S3)</li>
+      <li>une architecture d'application segmentée qui fournit une séparation efficace et sécurisée entre les composants
+        ou les environnements hébergés, avec de la segmentation, de la mise en conteneurs ou l'utilisation de groupes de
+        sécurité dans le Cloud (ACL)</li>
+      <li>l'envoi de directives de sécurité aux clients, par exemple En-têtes de sécurité</li>
+      <li>un processus automatisé pour vérifier l'efficacité des configurations et des réglages dans tous les
+        environnements.</li>
+    </ul>
+    </p>
+    <aside>
+      <div class="cyberbox">
+        <h2>Vous souhaitez en savoir plus sur la cybersécurité ?</h2>
+        <a href="https://www.letudiant.fr/etudes/formation-en-cyber-securite.html">Cliquez ici
+          !</a>
+      </div>
+    </aside>
+  </article>
+  <footer>
+    <div>
+      <div class="thanks">
+        <div>
+          <p>Petit site web fait grâce à Figma, mes connaissances et surtout internet qui m’a beaucoup
+            aidé
+            pour tout ce qui est de la programmation :
+          <ul>
+            <li>f:HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>(Et merci à tout ceux qui m’on aidé, m’ont donné des idées, conseillé et ceux qui on critiqué mon site en
+          bien et en mal, que ça soit mon prof, mes potes ou d’autres. C’est aux 3/4 ça qui m’a permis de faire ce site)
+          </p>
+        </div>
+        <img alt="gif" src="img/meme.gif" width="200" height="200">
+      </div>
+    </div>
+    <div class="divider"></div>
+    <a
+      href="https://www.figma.com/file/w1l7aC4qohGuyXwZVRtUeB/Site-Web?type=design&node-id=0%3A1&mode=design&t=BeGk2NPaMj0GEJBa-1">Plans</a>
+  </footer>
+</body>
+
+</html>
